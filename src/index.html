@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.js"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./styles/output.css">
+    <title>Web Practice JavaScript02</title>
+</head>
+
+<body>
+    <h1
+        class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl text-center p-5 lg:text-3xl dark:text-black">
+        =) Hello teacherssssssssss, This is my Practice 3 (=</h1>
+
+    <div class="flex p-5">
+        <div class="p-5" id="allInput">
+            <form class="w-fit  mx-auto p-10 bg-gray-100 rounded-e-lg" id="submitForm">
+                <h2 class="mb-4 text-2xl font-bold dark:text-black">Add Tasks</h2>
+    
+                <div class="w-lg">
+                    <label for="task-input" class="mb-2 text-l font-medium text-gray-900 dark:text-black">Task Name</label>
+                    <input type="text" id="task-input" aria-describedby="helper-text-explanation"
+                        class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-2 p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="HRD Homework<3" required />
+                    <p class="text-red-900" id="errorMsg"></p>
+    
+                </div>
+    
+                <div class="w-lg pt-6">
+                    <label for="task-input" class="mb-2 text-l font-medium text-gray-900 dark:text-black">Choose
+                        Date</label>
+                    <div class="relative ">
+                        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                            </svg>
+                        </div>
+                        <input id="datepicker-actions"  type="date"
+                            class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5   dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Select date" required/>
+                    </div>
+                </div>
+
+                <div class="w-lg pt-4">
+                    <label for="task-input" class="mb-2 text-l font-medium text-gray-900 dark:text-black">Priority</label>
+                    <div class="relative w-full">
+                        <select id="prio-picking" aria-describedby="helper-text-explanation"
+                            class="bg-gray-50 border border-e-0 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-gr dark:focus:ring-blue-500 dark:focus:border-blue-500">                        
+                            <option selected value="Select Priority">Select Priority</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w-40 pt-10">
+                    <button type="submit" id="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add New Task</button>
+                </div>
+            </form>     
+        </div>
+
+        <div class="p-5">
+         <form class="w-fit  mx-auto p-10 bg-gray-100 rounded-e-lg">
+            <h2 class="mb-4 text-2xl font-bold dark:text-black">Tasks List</h2>
+            <div class="relative overflow-x-auto">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-60 rounded-e-lg dark:text-black-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                TASK NAME
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                DUE DATE
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                PRIORITY
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                STATUS
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="taskList">
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 dark:text-black">
+                            <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-black" id="task_name">
+                                WEB Practice
+                            </th>
+                            <td class="px-6 py-4 " id="due_date">
+                                02/15/2025
+                            </td>
+                            <td class="px-6 py-4" id="priority">
+                                Urgent
+                            </td>
+                            <td class="px-6 py-4" id="status">
+                                <button class="bg-green-700 p-2 rounded-lg text-white">Processing</button>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+
+        </form>   
+        </div>  
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+
+</html>
